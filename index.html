@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MyTRP</title>
+    <title>travelApp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
@@ -12,163 +12,74 @@
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 
 </head>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="nav">
+        <a class="navbar-brand mr-5 ml-5" href="#">travelApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#portfolio">Portfolio</a>
+                </li>
+            </ul>
+        </div> -->
+    </nav>
+</header>
 
 <body>
-    <style>
-        .grid-container {
-            display: grid;
-            grid-template-columns: auto auto auto;
-            grid-gap: 10px;
-            /* background-color: #2196F3; */
-            padding: 10px;
-        }
 
-        .grid-container>div {
-            /* background-color: rgba(255, 255, 255, 0.8); */
-            text-align: center;
-            padding: 20px 0;
-            font-size: 30px;
-        }
-
-        .item1 {
-            grid-column-start: 1;
-            grid-column-end: 7;
-        }
-
-        /* .item2 {
-            grid-column-start: 5;
-            grid-column-end: 7;
-        } */
-
-        .item3 {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: blue;
-            grid-column-start: 1;
-            grid-column-end: 7;
-        }
-
-        .item4 {
-            grid-column-start: 1;
-            grid-column-end: 7;
-        }
-
-        .item5 {
-            grid-column-start: 1;
-            grid-column-end: 7;
-        }
-
-        .item6 {
-            background-color: rgba(255, 255, 255, 0.6);
-            grid-column-start: 1;
-            grid-column-end: 4;
-        }
-
-        .item7 {
-            background-color: rgba(255, 255, 255, 0.6);
-            grid-column-start: 4;
-            grid-column-end: 7;
-        }
-
-        .item8 {
-            background-color: rgba(255, 255, 255, 0.3);
-            grid-column-start: 1;
-            grid-column-end: 7;
-        }
-
-        .item9 {
-            background-color: rgba(255, 255, 255, 0.4);
-            grid-column-start: 1;
-            grid-column-end: 7;
-        }
-    </style>
-    <div class="grid-container">
-        <!-- this is the styling just for the nav within grid1 -->
-        <style>
-            body {
-                margin: 0;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-
-            .topnav {
-                overflow: hidden;
-                background-color: peru;
-            }
-
-            .topnav a {
-                float: left;
-                color: #f2f2f2;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-            }
-
-            .topnav a:hover {
-                background-color: #ddd;
-                color: blue;
-            }
-
-            .topnav a.active {
-                background-color: blue;
-                color: white;
-            }
-
-            #go-button {
-                background-color: blue;
-            }
-
-        </style>
-        <div class="item1">
-            <div class="topnav">
-                <a class="active" href="#home">MyTRP</a>
-                <a href="">Home</a>
-                <a href="personalize.html">Recommend</a>
-
-            </div>
-        </div>
-
-        <div class="item3 text-success" text-align: center>
-            <h1>
-                <em>Where would you like to go?</em>
-            </h1>
-        </div>
-
-        <div class="item4">
+    <section class="jumbotron text-center shadow-lg mt-4" id="search-section">
+        <div class="container">
+            <h1 class="jumbotron-heading mt-5">Hello, where would you like to go?</h1>
             <form>
-                <div class="form-group text-center">
+                <div class="form-group text-center mt-3">
                     <label for="searchQuery"></label>
                     <input type="search" class="form-control-lg text-center" id="searchInput" placeholder="Take me to..." required>
                 </div>
-                <div class="item5">
-                    <button type="submit" class="btn btn-primary btn-lg" id="go-button" style="display: block; margin: 0 auto;">Go</button>
+                <div>
+                    <button type="submit" class="btn btn-dark btn-lg" id="go-button" style="display: block; margin: 0 auto;">Go</button>
                 </div>
             </form>
         </div>
+    </section>
 
-        <div class="item6">
-            <!-- grid6 will contain the YouTube video results -->
-            <div id="trending-videos"></div>
-        </div>
-        <div class="item7">
-            <!-- grid7 will contain the YouTube hotel video results -->
-            <div id="hotel-videos"></div>
+    <div data-spy="scroll" data-target="#search-section" data-offset="0" class="container" id="results">
+
+            <div class="row" >
+                <div class="col-md-4">
+                    <div id="trending-videos"></div>
+                </div>
+                <div class="col-md-4">
+                        <div id="hotel-videos"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="most-liked-header"></div>
+                            <div class="form-inline" id="most-liked"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
         </div>
 
-        <div class="item8" text-align: center>
-            <!-- grid8 will contain the GoogleMaps result -->
-            <div id="map"></div>
-        </div>
-        <div class="item9 mx-auto" text-align: center>
-            <!--  grid9 will contain the videos that are liked by the user from grid 6 -->
-            <div id="most-liked-header"></div>
-            <div class="form-inline" id="most-liked"></div>
-        </div>
-
-    </div>
-    <!--  footer will contain copyright and a badass message just because -->
-    <footer class="footer">
-        copyright 2018.
+    <!-- Sticky Footer -->
+    <footer>
+        <div class="text-white text-center bg-secondary p-2">Footer</div>
     </footer>
+
 
     <!-- Link to Fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
